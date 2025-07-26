@@ -1,0 +1,6 @@
+confirmation_product_name_locator = "//h5[contains(@class,'product-title')]"
+confirmation_product_price_locator = "//div[contains(@class,'product-price')]"
+confirmation_message_locator = "//legend[@id='confirmation-message']"
+confirmation_order_number_locator = "//div[normalize-space(text())='Your order number is']"
+confirmation_download_invoice_locator = "//a[@id='downloadpdf']"
+confirmation_continue_shopping_locator = "//button[text()='Continue Shopping »']"

@@ -1,0 +1,7 @@
+shipping_first_name_locator = "//input[@id='firstNameInput']"
+shipping_last_name_locator = "//input[@id='lastNameInput']"
+shipping_address_line1_locator = "//input[@id='addressLine1Input']"
+shipping_province_locator = "//input[@id='provinceInput']"
+shipping_postal_code_locator = "//input[@id='postCodeInput']"
+shipping_submit_locator = "//button[text()='Submit']"
+shipping_order_summary_total_price_locator = "//span[@class='cart-priceItem-value']"

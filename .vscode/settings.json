@@ -1,0 +1,6 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python-envs.pythonProjects": [],
+    "python.analysis.addHoverSummaries": true,
+    "robot.language-server.python": "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13"
+}
