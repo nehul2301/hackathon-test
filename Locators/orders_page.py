@@ -1,0 +1,1 @@
+order_container_locator = "//div[@class='a-box shipment shipment-is-delivered']"

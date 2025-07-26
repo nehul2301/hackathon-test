@@ -11,12 +11,12 @@ ${INVALID_PASSWORD}=    wrongpassword
 
 *** Keywords ***
 Create Browser
-    [Arguments]    ${browser}=chrome    ${url}=about:blank
+    [Arguments]    ${browser}=chrome    ${url}=https://testathon.live
     Open Browser    ${url}    ${browser}
     Maximize Browser Window
 
 Close Browser
-    Close Browser
+    Close All Browsers
 
 # Login Keywords
 Login With Valid Credentials
@@ -193,7 +193,7 @@ Verify Checkbox State
     ...    ELSE    Checkbox Should Not Be Selected    ${checkbox_locator}
 
 Wait And Click Element
-    [Arguments]    ${locator}    ${timeout}=10s
+    [Arguments]    ${locator}    ${timeout}=2s
     Wait Until Element Is Visible    ${locator}    ${timeout}
     Click Element    ${locator}
 
@@ -201,3 +201,13 @@ Enter Text And Submit
     [Arguments]    ${input_locator}    ${text}    ${submit_locator}
     Input Text    ${input_locator}    ${text}
     Click Element    ${submit_locator}
+
+Wait Until Url Contains
+    [Arguments]    ${substring}    ${timeout}=10s
+        Wait For Page To Load    ${timeout}
+        Wait Until Keyword Succeeds    3x    2s    Check Url    ${substring}
+        
+Check Url
+    [Arguments]    ${expected_url}    ${timeout}=10s
+        ${current_url}=    Get Location
+        Should Contain    ${current_url}    ${expected_url}
