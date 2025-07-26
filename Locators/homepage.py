@@ -6,3 +6,4 @@ homepage_signin_locator = "//a[@id='Sign In']"
 homepage_orders_section_locator = "//a[@id='orders']"
 homepage_favorites_section_locator = "//a[@id='favorites']"
 homepage_offers_section_locator = "//a[@id='offers']"
+

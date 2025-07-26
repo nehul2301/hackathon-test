@@ -27,7 +27,7 @@ platforms:
 
 parallelsPerPlatform: 1
 
-browserstackLocal: true # <boolean> (Default false)
+browserstackLocal: false # <boolean> (Default false)
 debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
 networkLogs: false # <boolean> Set to true to enable HAR logs capturing
 consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)

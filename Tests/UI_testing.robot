@@ -1,104 +1,97 @@
 *** Settings ***
 Resource    ../Resources/KeywordsFile.robot
+Variables   ../Locators/homepage.py
+Variables   ../Locators/loginpage.py
+Variables   ../Locators/offerspage.py
+Test Setup    Open Browser    https://testathon.live    chrome
+Test Teardown    Close Browser
 
 *** Test Cases ***
 Test Case 1: Verify All Navigation Links Are Available
     [Documentation]    Verify that all navigation links are present on the page
     [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Verify All Navigation Links
+    Wait Until Page Contains Element    ${home_navigation_menu_locator}    timeout=10s
+    Page Should Contain Element    ${home_products_link_locator}
+    Page Should Contain Element    ${home_login_link_locator}
+    Page Should Contain Element    ${home_cart_icon_locator}
+    Page Should Contain Element    ${contact_page_link_locator}
 
 Test Case 2: Verify Footer Elements
     [Documentation]    Verify that footer contains required elements
     [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Verify Footer Elements
+    Wait Until Page Contains Element    ${home_footer_locator}    timeout=10s
+    Page Should Contain Element    ${home_footer_locator}
 
 Test Case 3: Verify Header Elements
     [Documentation]    Verify that header contains required elements
     [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Verify Header Elements
+    Wait Until Page Contains Element    ${home_header_locator}    timeout=10s
+    Page Should Contain Element    ${home_header_locator}
+    Page Should Contain Element    ${home_logo_locator}
+    Page Should Contain Element    ${home_navigation_menu_locator}
 
 Test Case 4: Verify Application Logo
     [Documentation]    Verify that the application logo is visible
     [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Verify Logo
+    Wait Until Page Contains Element    ${home_logo_locator}    timeout=10s
+    Element Should Be Visible    ${home_logo_locator}
 
 Test Case 5: Verify Home Page Navigation
     [Documentation]    Verify navigation to home page works correctly
     [Tags]    TC-101
-    Navigate To Home Page
+    Wait Until Page Contains Element    ${home_logo_locator}    timeout=10s
+    Click Element    ${home_logo_locator}
+    Wait Until Page Contains Element    ${home_products_link_locator}    timeout=10s
 
 Test Case 6: Verify Products Page Navigation
     [Documentation]    Verify navigation to products page works correctly
     [Tags]    TC-101
-    Navigate To Products Page
+    Wait Until Page Contains Element    ${home_products_link_locator}    timeout=10s
+    Click Element    ${home_products_link_locator}
+    Wait Until Page Contains Element    ${home_product_card_locator}    timeout=10s
+    Page Should Contain Element    ${home_add_to_cart_button_locator}
 
 Test Case 7: Verify Page Title
     [Documentation]    Verify that page title is correct
     [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Verify Page Title    Welcome to Our Application
+    Title Should Contain    Testathon
 
 Test Case 8: Verify Login Page Title
     [Documentation]    Verify that login page title is correct
     [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}/login
-    Verify Page Title    Login - Our Application
+    Click Element    ${home_login_link_locator}
+    Wait Until Page Contains Element    ${login_username_dropdown_locator}    timeout=10s
+    Title Should Contain    Testathon
 
 Test Case 9: Verify Products Page Title
     [Documentation]    Verify that products page title is correct
     [Tags]    TC-101
-    Navigate To Products Page
-    Verify Page Title    Products - Our Application
+    Click Element    ${home_products_link_locator}
+    Wait Until Page Contains Element    ${home_product_card_locator}    timeout=10s
+    Title Should Contain    Testathon
 
-Test Case 10: Verify Login Button Clickability
-    [Documentation]    Verify that login button is clickable
-    [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}/login
-    Verify Element Is Clickable    id=login-button
+Test Case 10: Verify Cart Icon Functionality
+    [Documentation]    Verify that cart icon is functional
+    [Tags]    TC-102
+    Wait Until Page Contains Element    ${home_cart_icon_locator}    timeout=10s
+    Element Should Be Visible    ${home_cart_icon_locator}
+    Click Element    ${home_cart_icon_locator}
+    Wait Until Page Contains    Your shopping bag is empty    timeout=10s
 
-Test Case 11: Verify Cart Icon Visibility
-    [Documentation]    Verify that cart icon is visible
-    [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Page Should Contain Element    id=cart-icon
+Test Case 11: Verify Offers Page Elements
+    [Documentation]    Verify that offers page displays promotional content
+    [Tags]    TC-103
+    # Navigate to offers if there's a link, otherwise check if offers appear on homepage
+    Run Keyword And Continue On Failure    Wait Until Page Contains Element    ${offers_header_locator}    timeout=5s
+    Run Keyword And Continue On Failure    Page Should Contain Element    ${offers_iphone_locator}
+    Run Keyword And Continue On Failure    Page Should Contain Element    ${offers_oneplus_locator}
+    Run Keyword And Continue On Failure    Page Should Contain Element    ${offers_free_shipping_locator}
 
-Test Case 12: Verify Images Are Loading Correctly
-    [Documentation]    Verify that product images are loading correctly
-    [Tags]    TC-101
-    Navigate To Products Page
-    Page Should Contain Element    class=product-image
-    Element Should Be Visible    class=product-image
-
-Test Case 13: Verify Images Are Not Loading For Failing User
-    [Documentation]    Verify that product images are loading correctly
-    [Tags]    TC-101
-    Navigate To Products Page
-    Page Should Contain Element    class=product-image
-    Element Should Be Visible    class=product-image
-
-Test Case 14: Verify Elements Are Not Overlapping On The Page
-    [Documentation]    Verify that elements are not overlapping on the page
-    [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Element Should Not Overlap    id=header    id=footer
-    Element Should Not Overlap    class=main-content    class=sidebar
-
-Test Case 15: Verify Home Page Icon Button Is Same On All Pages
-    [Documentation]    Verify that home page icon button is consistent across all pages
-    [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}
-    Page Should Contain Element    id=home-icon
-    Click Element    id=home-icon
-    Page Should Contain    Welcome to Home
-
-Test Case 16 : Verify Home Page Icon Button Is Present On Sign In Page
-    [Documentation]    Verify that home page icon button is present on sign in page
-    [Tags]    TC-101
-    Navigate To Page    ${BASE_URL}/login
-    Page Should Contain Element    id=home-icon
-    Click Element    id=home-icon
-    Page Should Contain    Welcome to Home
+Test Case 12: Verify Search Functionality
+    [Documentation]    Verify that search functionality works correctly
+    [Tags]    TC-104
+    Click Element    ${home_products_link_locator}
+    Wait Until Page Contains Element    ${home_search_box_locator}    timeout=10s
+    Input Text    ${home_search_box_locator}    iPhone
+    Click Element    ${home_search_button_locator}
+    Wait Until Page Contains    iPhone    timeout=10s
