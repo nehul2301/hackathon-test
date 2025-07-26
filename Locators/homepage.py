@@ -7,3 +7,9 @@ homepage_orders_section_locator = "//a[@id='orders']"
 homepage_favorites_section_locator = "//a[@id='favourites']"
 homepage_offers_section_locator = "//a[@id='offers']"
 
+footer_locator= "//span[text()='© 2020 BrowserStack. All rights reserved.']"
+
+apple_filter_locator = "//input[@value= 'Apple']"
+oneplus_filter_locator = "//input[@value= 'One Plus']"
+google_filter_locator = "//input[@value= 'Google']"
+pixel_filter_locator = "//input[@value= 'Pixel']"

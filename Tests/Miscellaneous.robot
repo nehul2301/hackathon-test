@@ -40,33 +40,40 @@ Test Case 4: Verify Error Page Handling
 
 Test Case 5: Verify Sorting By Apple Works
     [Documentation]    Verify that sorting products by Apple brand works
-    [Tags]    TC-101
-    Click Element    ${home_products_link_locator}
-    Wait Until Page Contains Element    ${home_sort_dropdown_locator}    timeout=10s
-    Click Element    ${home_sort_dropdown_locator}
-    Click Element    ${home_filter_apple_locator}
-    Wait Until Page Contains    Apple    timeout=10s
-    Page Should Contain Element    ${home_product_card_locator}
+    [Tags]    TC-139
+    Click Element    ${apple_filter_locator}
+    Page Should Contain Element    //p[contains(text(),'iPhone')]
+    Page Should Not Contain    //p[contains(text(),'One Plus')]
+    Page Should Not Contain    //p[contains(text(),'Pixel')]
+    Page Should Not Contain    //p[contains(text(),'Galaxy')]
+
 
 Test Case 6: Verify Sorting By OnePlus Works
     [Documentation]    Verify that sorting products by OnePlus brand works
-    [Tags]    TC-101
-    Click Element    ${home_products_link_locator}
-    Wait Until Page Contains Element    ${home_sort_dropdown_locator}    timeout=10s
-    Click Element    ${home_sort_dropdown_locator}
-    Click Element    ${home_filter_oneplus_locator}
-    Wait Until Page Contains    OnePlus    timeout=10s
-    Page Should Contain Element    ${home_product_card_locator}
+    [Tags]    TC-142
+    Click Element    ${oneplus_filter_locator}
+    Page Should Not Contain    //p[contains(text(),'iPhone')]
+    Page Should Contain Element    //p[contains(text(),'One Plus')]
+    Page Should Not Contain    //p[contains(text(),'Pixel')]
+    Page Should Not Contain    //p[contains(text(),'Galaxy')]
 
 Test Case 7: Verify Sorting By Samsung Works
     [Documentation]    Verify that sorting products by Samsung brand works
-    [Tags]    TC-101
-    Click Element    ${home_products_link_locator}
-    Wait Until Page Contains Element    ${home_sort_dropdown_locator}    timeout=10s
-    Click Element    ${home_sort_dropdown_locator}
-    Click Element    ${home_filter_samsung_locator}
-    Wait Until Page Contains    Samsung    timeout=10s
-    Page Should Contain Element    ${home_product_card_locator}
+    [Tags]    TC-140
+    Click Element    ${pixel_filter_locator}
+    Page Should Not Contain    //p[contains(text(),'iPhone')]
+    Page Should Not Contain    //p[contains(text(),'One Plus')]
+    Page Should Not Contain    //p[contains(text(),'Pixel')]
+    Page Should Contain Element    //p[contains(text(),'Galaxy')]
+
+Test Case 11 : Verify Sorting By Google Works
+    [Documentation]    Verify that sorting products by Samsung brand works
+    [Tags]    TC-141
+    Click Element    ${google_filter_locator}
+    Page Should Not Contain    //p[contains(text(),'iPhone')]
+    Page Should Not Contain    //p[contains(text(),'One Plus')]
+    Page Should Not Contain    //p[contains(text(),'Pixel')]
+    Page Should Not Contain    //p[contains(text(),'Galaxy')]
 
 Test Case 8: Verify Product Search Functionality
     [Documentation]    Verify that product search works correctly

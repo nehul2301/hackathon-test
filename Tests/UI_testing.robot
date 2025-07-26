@@ -19,22 +19,22 @@ Test Case 1: Verify All Navigation Links Are Available
 Test Case 2: Verify Footer Elements
     [Documentation]    Verify that footer contains required elements
     [Tags]    TC-101
-    Wait Until Page Contains Element    ${home_footer_locator}    timeout=10s
-    Page Should Contain Element    ${home_footer_locator}
+    Wait Until Page Contains Element    ${footer_locator}    timeout=10s
 
 Test Case 3: Verify Header Elements
     [Documentation]    Verify that header contains required elements
     [Tags]    TC-101
-    Wait Until Page Contains Element    ${home_header_locator}    timeout=10s
-    Page Should Contain Element    ${home_header_locator}
-    Page Should Contain Element    ${home_logo_locator}
-    Page Should Contain Element    ${home_navigation_menu_locator}
+    Page Should Contain Element    ${homepage_home_button_locator}
+    Page Should Contain Element    ${homepage_orders_section_locator}
+    Page Should Contain Element    ${homepage_favorites_section_locator}
+    Page Should Contain Element    ${homepage_offers_section_locator}
+    Page Should Contain Element    ${homepage_signin_locator}
 
 Test Case 4: Verify Application Logo
     [Documentation]    Verify that the application logo is visible
     [Tags]    TC-101
-    Wait Until Page Contains Element    ${home_logo_locator}    timeout=10s
-    Element Should Be Visible    ${home_logo_locator}
+    Page Should Contain Element    ${homepage_home_button_locator}
+
 
 Test Case 5: Verify Home Page Navigation
     [Documentation]    Verify navigation to home page works correctly
@@ -87,11 +87,3 @@ Test Case 11: Verify Offers Page Elements
     Run Keyword And Continue On Failure    Page Should Contain Element    ${offers_oneplus_locator}
     Run Keyword And Continue On Failure    Page Should Contain Element    ${offers_free_shipping_locator}
 
-Test Case 12: Verify Search Functionality
-    [Documentation]    Verify that search functionality works correctly
-    [Tags]    TC-104
-    Click Element    ${home_products_link_locator}
-    Wait Until Page Contains Element    ${home_search_box_locator}    timeout=10s
-    Input Text    ${home_search_box_locator}    iPhone
-    Click Element    ${home_search_button_locator}
-    Wait Until Page Contains    iPhone    timeout=10s
