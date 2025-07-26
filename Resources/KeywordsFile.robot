@@ -3,10 +3,10 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${remote_url}=    http://localhost:4444/wd/hub
-${BASE_URL}=    https://example.com
-${VALID_USERNAME}=    testuser@example.com
-${VALID_PASSWORD}=    password123
-${INVALID_USERNAME}=    invalid@example.com
+${BASE_URL}=    https://testathon.live
+${VALID_USERNAME}=    demouser
+${VALID_PASSWORD}=    testingisfun99
+${INVALID_USERNAME}=    locked_user
 ${INVALID_PASSWORD}=    wrongpassword
 
 *** Keywords ***
