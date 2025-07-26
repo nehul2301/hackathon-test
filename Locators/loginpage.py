@@ -10,3 +10,4 @@ login_locator = '//button[text()="Log In"]'
 login_image_not_loading_username_locator = "//span[text()='image_not_loading_user']"
 existing_order_username_locator = "//span[text()='existing_orders_user']"
 favorite_username_locator = "//span[text()='fav_user']"
+login_locked_message_locator = '//h3[text()="Your account has been locked."]'

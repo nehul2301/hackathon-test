@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 
 *** Variables ***
 ${remote_url}=    http://localhost:4444/wd/hub
@@ -211,3 +212,13 @@ Check Url
     [Arguments]    ${expected_url}    ${timeout}=10s
         ${current_url}=    Get Location
         Should Contain    ${current_url}    ${expected_url}
+# Product Name Handling Keywords
+Get Product Locator
+    [Arguments]    ${locator}    ${product_name}
+    ${updated_locator}=    Replace String    ${locator}    PRODUCT_NAME    ${product_name}
+    [Return]    ${updated_locator}
+
+Wait And Input Element
+    [Arguments]    ${locator}    ${text}    ${timeout}=10s
+    Wait Until Element Is Visible    ${locator}    ${timeout}
+    Input Text    ${locator}    ${text}
