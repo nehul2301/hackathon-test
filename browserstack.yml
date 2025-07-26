@@ -13,14 +13,22 @@ framework: robot
 # Entire list available here -> (https://www.browserstack.com/list-of-browsers-and-platforms/automate)
 platforms:
   - os: OS X
-    osVersion: Big Sur
+    osVersion: Sequoia
+    browserName: Chrome
+    browserVersion: latest
+  - os: OS X
+    osVersion: Sequoia
+    browserName: Safari
+    browserVersion: latest
+  - os: Windows
+    osVersion: 10
     browserName: Chrome
     browserVersion: latest
   - os: Windows
     osVersion: 10
-    browserName: Edge
+    browserName: Firefox
     browserVersion: latest
-  - deviceName: Samsung Galaxy S22 Ultra
+  - deviceName: Samsung Galaxy S25 Ultra
     browserName: chrome # Try 'samsung' for Samsung browser
     osVersion: 12.0
 

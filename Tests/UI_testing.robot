@@ -10,11 +10,11 @@ Test Teardown    Close Browser
 Test Case 1: Verify All Navigation Links Are Available
     [Documentation]    Verify that all navigation links are present on the page
     [Tags]    TC-101
-    Wait Until Page Contains Element    ${home_navigation_menu_locator}    timeout=10s
-    Page Should Contain Element    ${home_products_link_locator}
-    Page Should Contain Element    ${home_login_link_locator}
-    Page Should Contain Element    ${home_cart_icon_locator}
-    Page Should Contain Element    ${contact_page_link_locator}
+    Page Should Contain Element    ${homepage_home_button_locator}
+    Page Should Contain Element    ${homepage_orders_section_locator}
+    Page Should Contain Element    ${homepage_favorites_section_locator}
+    Page Should Contain Element    ${homepage_offers_section_locator}
+    Page Should Contain Element    ${homepage_signin_locator}
 
 Test Case 2: Verify Footer Elements
     [Documentation]    Verify that footer contains required elements
